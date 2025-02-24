@@ -1,6 +1,6 @@
 import axios from 'axios';
 
-const API_URL = 'http://localhost:5000/api/usuarios';
+const API_URL = 'https://consultorio-medico-1.onrender.com/api/usuarios';
 
 // Funciones CRUD para usuarios
 export const createUser = (user) => axios.post(`${API_URL}/usuarios`, user);

@@ -120,6 +120,7 @@ const CrearUsuario = () => {
                                 >
                                     <option value="">Seleccione un rol</option>
                                     <option value="paciente">Paciente</option>
+                                    <option value="admin">Administrador</option>
                                 </select>
                             </div>
 

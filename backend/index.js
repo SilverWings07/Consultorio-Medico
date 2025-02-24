@@ -15,6 +15,13 @@ app.use(cors({
     credentials: true
 }));
 
+// Asegúrate de permitir solicitudes desde http://localhost:3000
+app.use(cors({
+    origin: 'http://localhost:3000',  // Frontend local
+    methods: ['GET', 'POST', 'PUT', 'DELETE'],  // Métodos permitidos
+    allowedHeaders: ['Content-Type', 'Authorization'],  // Encabezados permitidos
+  }));
+
 app.use(express.json());
 
 // Rutas
