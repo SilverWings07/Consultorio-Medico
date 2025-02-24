@@ -1,0 +1,60 @@
+/* Estilos para la Ventana Flotante */
+.Ventana-flotante {
+  position: fixed;
+  top: 30%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background: cadetblue;
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 0 0 15px rgba(0, 0, 0, 0.2);
+  width: 90%;
+  max-width: 750px;
+}
+
+/* Contenedor del formulario */
+.Contenido-ventana {
+  display: flex;
+  flex-direction: column;
+  gap: 25px;
+}
+
+/* Filas del formulario */
+.Row {
+  display: flex;
+  justify-content: space-between;
+  gap: 10px;
+}
+
+/* Estilos para los inputs */
+.Row input,
+.Last-row input {
+  flex: 1;
+  padding: 5px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  font-size: 12px;
+}
+
+/* Última fila centrada */
+.Last-row {
+  display: flex;
+  justify-content: center;
+  gap: 10px;
+}
+
+/* RESPONSIVE DESIGN */
+@media (max-width: 500px) {
+  .Row {
+      flex-direction: column;
+  }
+
+  .Ventana-flotante {
+      width: 95%;
+  }
+}
+
+.Guardar {
+  padding: 5px;
+  gap: 10px;
+}
