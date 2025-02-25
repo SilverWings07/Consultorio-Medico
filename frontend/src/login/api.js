@@ -1,4 +1,4 @@
-const API_URL = "http://localhost:5000/api/login";
+const API_URL = "https://consultorio-medico-mh5o.onrender.com/api/login";
 
 export const login = async (correo, contraseña) => {
   try {
