@@ -10,13 +10,22 @@ dotenv.config();
 const app = express();
 
 // Configurar CORS para permitir solicitudes desde tu frontend en Vercel
-const allowedOrigins = ['https://consultorio-medico-xi.vercel.app/', 'http://localhost:3000'];
-
 app.use(cors({
-  origin: allowedOrigins, // Permite solicitudes solo desde estos orígenes
-  methods: ['GET', 'POST', 'PUT', 'DELETE'],
-  allowedHeaders: ['Content-Type', 'Authorization'],
-}));
+    origin: function (origin, callback) {
+      const allowedOrigins = [
+        'https://consultorio-medico-xi.vercel.app',
+        'http://localhost:3000'
+      ];
+  
+      if (!origin || allowedOrigins.includes(origin)) {
+        callback(null, true); // Permitir acceso
+      } else {
+        callback(new Error('Not allowed by CORS'));
+      }
+    },
+    methods: ['GET', 'POST', 'PUT', 'DELETE'],
+    allowedHeaders: ['Content-Type', 'Authorization'],
+  }));
 
 app.use(express.json());
 
