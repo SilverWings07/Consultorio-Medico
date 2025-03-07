@@ -1,6 +1,6 @@
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
-import CrearUsuario from './users/CrearUsuario';
 import Login from "./login/login";
+import CrearUsuario from "./users/CrearUsuario";
 import Dashboard from "./dashboard";
 
 function App() {
@@ -8,7 +8,7 @@ function App() {
     <Router>
       <Routes>
         <Route path="/" element={<Login />} />
-        <Route path="/dashboard" element={<Dashboard />} />
+        <Route path="/dashboard" element={<CrearUsuario />} />
       </Routes>
     </Router>
   );

@@ -1,20 +1,20 @@
-import React from "react";
-import { useNavigate } from "react-router-dom";
+import { useEffect, useState } from "react";
 
 const Dashboard = () => {
-  const navigate = useNavigate();
+  const [token, setToken] = useState("");
 
-  const handleLogout = () => {
-    // Aquí puedes limpiar el almacenamiento local o cookies si es necesario
-    localStorage.removeItem("token"); // Ejemplo si usas token en localStorage
-    navigate("/"); // Redirige al login
-  };
+  useEffect(() => {
+    const storedToken = localStorage.getItem("token");
+    if (storedToken) {
+      setToken(storedToken);
+    }
+  }, []);
 
   return (
     <div>
-      <h1>Bienvenido al Dashboard</h1>
-      <p>Has iniciado sesión correctamente.</p>
-      <button onClick={handleLogout}>Cerrar sesión</button>
+      <h2>Dashboard</h2>
+      <p>Bienvenido, aquí está tu token:</p>
+      <pre>{token ? token : "No hay token disponible"}</pre>
     </div>
   );
 };

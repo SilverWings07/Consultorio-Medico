@@ -1,20 +1,25 @@
+// ../frontend/src/login/login.js
+
 import { useState } from "react";
 import { login } from "./api";
 import { useNavigate } from "react-router-dom";
 
 const Login = () => {
-  const [username, setUsername] = useState("");
-  const [password, setPassword] = useState("");
+  const [correo, setCorreo] = useState("");
+  const [contraseña, setContraseña] = useState("");
   const navigate = useNavigate();
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    const response = await login(username, password);
 
-    if (response) {
-      console.log("Login exitoso");
-      navigate("/dashboard"); // Redirige al usuario después del login
-    } else {
+    try {
+      const response = await login(correo, contraseña);
+      
+      if (response && response.token) {
+        console.log("✅ Login exitoso, token almacenado en API");
+        navigate("/dashboard"); // Redirige al usuario después del login
+      }
+    } catch (error) {
       alert("Usuario o contraseña incorrectos");
     }
   };
@@ -24,16 +29,16 @@ const Login = () => {
       <h2>Login</h2>
       <form onSubmit={handleSubmit}>
         <input
-          type="text"
-          placeholder="Usuario"
-          value={username}
-          onChange={(e) => setUsername(e.target.value)}
+          type="email"
+          placeholder="Correo"
+          value={correo}
+          onChange={(e) => setCorreo(e.target.value)}
         />
         <input
           type="password"
           placeholder="Contraseña"
-          value={password}
-          onChange={(e) => setPassword(e.target.value)}
+          value={contraseña}
+          onChange={(e) => setContraseña(e.target.value)}
         />
         <button type="submit">Iniciar sesión</button>
       </form>
