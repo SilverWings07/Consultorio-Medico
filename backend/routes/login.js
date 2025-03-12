@@ -35,8 +35,16 @@ router.post('/login', async (req, res) => {
       { expiresIn: '2h' }
     );
 
-    // Enviar respuesta
-    res.json({ token: token });
+    // 👉 Configurar la cookie con HttpOnly y Secure (solo HTTPS)
+    res.cookie('token', token, {
+      httpOnly: true,                                 // No accesible desde JS del cliente
+      secure: process.env.NODE_ENV === 'production',  // Solo en HTTPS en producción
+      sameSite: 'Strict',                             // Evita CSRF
+      maxAge: 2 * 60 * 60 * 1000                      // Expira en 2 horas
+    });
+
+    // Enviar respuesta al frontend
+    res.json({ success: true });
 
   } catch (error) {
     console.error("Error en el login:", error);

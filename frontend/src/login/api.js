@@ -9,23 +9,20 @@ export const login = async (correo, contraseña) => {
       method: "POST",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify({ correo, contraseña }),
+      credentials: 'include' // 👈 Esto permite el envío de cookies
     });
 
     const data = await response.json();
-    
+
     if (!response.ok) {
       throw new Error(data.error || "Error en la autenticación");
     }
 
-    // 📌 Guardar token en localStorage
-    if (data.token) {
-      localStorage.setItem("token", data.token);
-      console.log("🔑 Token guardado en localStorage");
-    }
+    console.log("✅ Usuario autenticado correctamente");
 
     return data;
   } catch (error) {
-    console.error("Error en login:", error);
+    console.error("❌ Error en login:", error);
     throw error;
   }
 };

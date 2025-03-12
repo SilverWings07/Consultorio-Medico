@@ -15,9 +15,10 @@ const Login = () => {
     try {
       const response = await login(correo, contraseña);
       
-      if (response && response.token) {
-        console.log("✅ Login exitoso, token almacenado en API");
-        navigate("/dashboard"); // Redirige al usuario después del login
+      // ✅ Si la respuesta es exitosa (status 200), redirige
+      if (response && response.success) {
+        console.log("✅ Login exitoso, redirigiendo al dashboard");
+        navigate("/dashboard"); // 👈 Redirige después del login
       }
     } catch (error) {
       alert("Usuario o contraseña incorrectos");
