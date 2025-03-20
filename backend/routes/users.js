@@ -9,7 +9,7 @@ import roleMiddleware from './../middlewares/role.js';
 
 const router = express.Router();
 
-router.post('/usuarios', authMiddleware, roleMiddleware(['admin']), async (req, res) => {
+router.post('/usuarios', async (req, res) => {
     const { correo, contraseña, nombre, fecha_nacimiento, telefono, direccion, rol } = req.body;
   
     // Hashear contraseña
