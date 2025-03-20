@@ -1,7 +1,7 @@
 // ../frontend/src/login/api.js
 
-const API_URL = "https://consultorio-medico-mh5o.onrender.com/api/login";
-// const API_URL = "http://localhost:5000/api/login";
+// const API_URL = "https://consultorio-medico-mh5o.onrender.com/api/login";
+const API_URL = "http://localhost:5000/api/login";
 
 export const login = async (correo, contraseña) => {
   try {
@@ -18,11 +18,8 @@ export const login = async (correo, contraseña) => {
       throw new Error(data.error || "Error en la autenticación");
     }
 
-    console.log("✅ Usuario autenticado correctamente");
-
     return data;
   } catch (error) {
-    console.error("❌ Error en login:", error);
     throw error;
   }
 };

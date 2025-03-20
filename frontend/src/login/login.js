@@ -3,6 +3,7 @@
 import { useState } from "react";
 import { login } from "./api";
 import { useNavigate } from "react-router-dom";
+import './styles.css';
 
 const Login = () => {
   const [correo, setCorreo] = useState("");
@@ -15,9 +16,8 @@ const Login = () => {
     try {
       const response = await login(correo, contraseña);
       
-      // ✅ Si la respuesta es exitosa (status 200), redirige
+      // ✅ (status 200)
       if (response && response.success) {
-        console.log("✅ Login exitoso, redirigiendo al dashboard");
         navigate("/dashboard"); // 👈 Redirige después del login
       }
     } catch (error) {
@@ -26,23 +26,38 @@ const Login = () => {
   };
 
   return (
-    <div>
-      <h2>Login</h2>
-      <form onSubmit={handleSubmit}>
-        <input
-          type="email"
-          placeholder="Correo"
-          value={correo}
-          onChange={(e) => setCorreo(e.target.value)}
-        />
-        <input
-          type="password"
-          placeholder="Contraseña"
-          value={contraseña}
-          onChange={(e) => setContraseña(e.target.value)}
-        />
-        <button type="submit">Iniciar sesión</button>
-      </form>
+    <div className="body">
+      <div className="login-box">
+        <form onSubmit={handleSubmit}>
+          <h2>Login</h2>
+          <div className="input-box">
+            <span className="icon"><ion-icon name="mail"></ion-icon></span>
+            <input type="email" required value={correo} onChange={(e) => setCorreo(e.target.value) }></input>
+            <label>Email</label>
+          </div>
+
+          <div className="input-box">
+            <span className="icon"><ion-icon name="lock-closed"></ion-icon></span>
+            <input type="password" required value={contraseña} onChange={(e) => setContraseña(e.target.value) }></input>
+            <label>Password</label>
+          </div>
+
+          <div className="remember-forgot">
+            <input type="checkbox"></input>
+            <label>Remember me</label>
+            <a href="#">Forgot Password?</a>
+          </div>
+
+          <button type="submit">Login</button>
+        </form>
+
+        <div className="register-link">
+          <p>
+            Don't have an account?
+            <a href="#">Register</a>
+          </p>
+        </div>
+      </div>
     </div>
   );
 };

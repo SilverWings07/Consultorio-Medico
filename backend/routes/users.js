@@ -4,15 +4,15 @@ import express from 'express';
 import supabase from './../db.js';
 import bcrypt from 'bcryptjs';
 
-import authMiddleware from './../middlewares/auth.js';  // Middleware de autenticación
-import roleMiddleware from './../middlewares/role.js';  // Middleware de autorización
+import authMiddleware from './../middlewares/auth.js';
+import roleMiddleware from './../middlewares/role.js';
 
 const router = express.Router();
 
 router.post('/usuarios', authMiddleware, roleMiddleware(['admin']), async (req, res) => {
     const { correo, contraseña, nombre, fecha_nacimiento, telefono, direccion, rol } = req.body;
   
-    // Hash de la contraseña
+    // Hashear contraseña
     const salt = await bcrypt.genSalt(10);
     const hashedPassword = await bcrypt.hash(contraseña, salt);
   
@@ -55,12 +55,11 @@ router.get('/usuarios/:id', authMiddleware, roleMiddleware(['admin']), async (re
     res.status(200).json(data);
 });
 
-// Actualizar un usuario por ID (solo el usuario mismo o un administrador)
+// Actualizar un usuario por ID (solo el propio usuario o un administrador)
 router.put('/usuarios/:id', authMiddleware, roleMiddleware(['admin']), async (req, res) => {
     const { id } = req.params;
     const { correo, contraseña, nombre, fecha_nacimiento, telefono, direccion, rol } = req.body;
 
-    // Solo permitir que el usuario se actualice a sí mismo o que un admin lo haga
     if (req.user.id !== parseInt(id) && req.user.rol !== 'admin') {
         return res.status(403).json({ error: 'No tienes permiso para modificar este usuario' });
     }
