@@ -1,4 +1,4 @@
-// ../frontend/src/login/login.js
+// ../frontend/src/login/Login.js
 
 import { useState } from "react";
 import { login } from "./api";
@@ -53,7 +53,7 @@ const Login = () => {
       <div className="register-link">
         <p>
           Don't have an account?
-          <a href="#">Register</a>
+          <a href="/register">Register</a>
         </p>
       </div>
     </div>
