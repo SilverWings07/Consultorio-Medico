@@ -1,17 +1,18 @@
+// ./frontend/src/home/Home.js
+
 import React from "react";
-import { Link } from "react-router-dom";
-import "./styles.css";
+import { HomepageContainer, Heading, Paragraph, ButtonsContainer, Button } from "./components";
 
 function Homepage() {
   return (
-    <div className="homepage">
-      <h1>Consultorio Médico</h1>
-      <p>Por favor, inicia sesión para continuar.</p>
-      <div className="homepage-buttons">
-        <Link to="/login" className="btn">Iniciar Sesión</Link>
-        <Link to="/register" className="btn">Crear Usuario</Link>
-      </div>
-    </div>
+    <HomepageContainer>
+      <Heading>Consultorio Médico</Heading>
+      <Paragraph>Por favor, inicia sesión para continuar.</Paragraph>
+      <ButtonsContainer>
+        <Button to="/login">Iniciar Sesión</Button>
+        <Button to="/register">Crear Usuario</Button>
+      </ButtonsContainer>
+    </HomepageContainer>
   );
 }
 

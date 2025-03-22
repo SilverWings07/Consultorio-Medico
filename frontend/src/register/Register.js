@@ -2,7 +2,7 @@
 
 import React, { useState } from "react";
 import { createUser } from "./api";
-import "./styles.css";
+import { RegistroContainer, Title, RegistroForm, FormGroup, Label, Input, Select, ButtonGroup, BtnPrimary } from "./components";
 
 const CrearUsuario = () => {
     const [formData, setFormData] = useState({
@@ -40,87 +40,87 @@ const CrearUsuario = () => {
     };
 
     return (
-        <div className="registro-container">
-            <h2>Registrar Nuevo Usuario</h2>
-            <form onSubmit={handleSubmit} className="registro-form">
-                <div className="form-group">
-                    <label>Correo:</label>
-                    <input
+        <RegistroContainer>
+            <Title>Registrar Nuevo Usuario</Title>
+            <RegistroForm onSubmit={handleSubmit}>
+                <FormGroup>
+                    <Label>Correo:</Label>
+                    <Input
                         type="email"
                         placeholder="correo@example.com"
                         value={formData.correo}
                         onChange={(e) => setFormData({ ...formData, correo: e.target.value })}
                         required
                     />
-                </div>
+                </FormGroup>
 
-                <div className="form-group">
-                    <label>Contraseña:</label>
-                    <input
+                <FormGroup>
+                    <Label>Contraseña:</Label>
+                    <Input
                         type="password"
                         placeholder="••••••••"
                         value={formData.contraseña}
                         onChange={(e) => setFormData({ ...formData, contraseña: e.target.value })}
                         required
                     />
-                </div>
+                </FormGroup>
 
-                <div className="form-group">
-                    <label>Nombre:</label>
-                    <input
+                <FormGroup>
+                    <Label>Nombre:</Label>
+                    <Input
                         type="text"
                         placeholder="Nombre completo"
                         value={formData.nombre}
                         onChange={(e) => setFormData({ ...formData, nombre: e.target.value })}
                         required
                     />
-                </div>
+                </FormGroup>
 
-                <div className="form-group">
-                    <label>Fecha de Nacimiento:</label>
-                    <input
+                <FormGroup>
+                    <Label>Fecha de Nacimiento:</Label>
+                    <Input
                         type="date"
                         value={formData.fecha_nacimiento}
                         onChange={(e) => setFormData({ ...formData, fecha_nacimiento: e.target.value })}
                     />
-                </div>
+                </FormGroup>
 
-                <div className="form-group">
-                    <label>Teléfono:</label>
-                    <input
+                <FormGroup>
+                    <Label>Teléfono:</Label>
+                    <Input
                         type="tel"
                         placeholder="Ej. 3312345678"
                         value={formData.telefono}
                         onChange={(e) => setFormData({ ...formData, telefono: e.target.value })}
                     />
-                </div>
+                </FormGroup>
 
-                <div className="form-group">
-                    <label>Dirección:</label>
-                    <input
+                <FormGroup>
+                    <Label>Dirección:</Label>
+                    <Input
                         type="text"
                         placeholder="Dirección"
                         value={formData.direccion}
                         onChange={(e) => setFormData({ ...formData, direccion: e.target.value })}
                     />
-                </div>
+                </FormGroup>
 
-                <div className="form-group">
-                    <label>Rol:</label>
-                    <select
+                <FormGroup>
+                    <Label>Rol:</Label>
+                    <Select
                         value={formData.rol}
                         onChange={(e) => setFormData({ ...formData, rol: e.target.value })}
                     >
                         <option value="">Seleccione un rol</option>
                         <option value="paciente">Paciente</option>
-                    </select>
-                </div>
+                    </Select>
+                </FormGroup>
 
-                <div className="button-group">
-                    <button type="submit" className="btn-primary">Crear</button>
-                </div>
-            </form>
-        </div>
+                <ButtonGroup>
+                    <BtnPrimary type="submit">Crear</BtnPrimary>
+                </ButtonGroup>
+            </RegistroForm>
+        </RegistroContainer>
     );
 };
 

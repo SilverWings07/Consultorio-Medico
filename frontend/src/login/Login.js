@@ -1,9 +1,7 @@
-// ../frontend/src/login/Login.js
-
-import { useState } from "react";
+import React, { useState } from "react";
 import { login } from "./api";
 import { useNavigate } from "react-router-dom";
-import './styles.css';
+import { Title, LoginBox, InputBox, RememberForgot, Checkbox, Button, RegisterLink, Icon, Label, Input } from './components.js';
 
 const Login = () => {
   const [correo, setCorreo] = useState("");
@@ -15,10 +13,9 @@ const Login = () => {
 
     try {
       const response = await login(correo, contraseña);
-      
-      // ✅ (status 200)
+
       if (response && response.success) {
-        navigate("/dashboard"); // 👈 Redirige después del login
+        navigate("/dashboard");
       }
     } catch (error) {
       alert("Usuario o contraseña incorrectos");
@@ -26,37 +23,38 @@ const Login = () => {
   };
 
   return (
-    <div className="login-box">
+    <LoginBox>
       <form onSubmit={handleSubmit}>
-        <h2>Login</h2>
-        <div className="input-box">
-          <span className="icon"><ion-icon name="mail"></ion-icon></span>
-          <input type="email" required value={correo} onChange={(e) => setCorreo(e.target.value) }></input>
-          <label>Email</label>
-        </div>
+        <Title>Login</Title>
 
-        <div className="input-box">
-          <span className="icon"><ion-icon name="lock-closed"></ion-icon></span>
-          <input type="password" required value={contraseña} onChange={(e) => setContraseña(e.target.value) }></input>
-          <label>Password</label>
-        </div>
+        <InputBox>
+          <Icon><ion-icon name="mail"></ion-icon></Icon>
+          <Input type="email" required value={correo} onChange={(e) => setCorreo(e.target.value)} />
+          <Label>Email</Label>
+        </InputBox>
 
-        <div className="remember-forgot">
-          <input type="checkbox"></input>
+        <InputBox>
+          <Icon><ion-icon name="lock-closed"></ion-icon></Icon>
+          <Input type="password" required value={contraseña} onChange={(e) => setContraseña(e.target.value)} />
+          <Label>Password</Label>
+        </InputBox>
+
+        <RememberForgot>
+          <Checkbox type="checkbox" />
           <label>Remember me</label>
           <a href="#">Forgot Password?</a>
-        </div>
+        </RememberForgot>
 
-        <button type="submit">Login</button>
+        <Button type="submit">Login</Button>
       </form>
 
-      <div className="register-link">
+      <RegisterLink>
         <p>
           Don't have an account?
           <a href="/register">Register</a>
         </p>
-      </div>
-    </div>
+      </RegisterLink>
+    </LoginBox>
   );
 };
 
