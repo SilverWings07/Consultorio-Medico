@@ -1,4 +1,4 @@
-// 
+// ./frontend/src/pages/dashboard.js
 
 const Dashboard = () => {
   return (

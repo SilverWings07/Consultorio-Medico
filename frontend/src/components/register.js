@@ -1,3 +1,5 @@
+// ./frontend/src/components/register
+
 import styled from "styled-components";
 
 export const RegistroContainer = styled.div`

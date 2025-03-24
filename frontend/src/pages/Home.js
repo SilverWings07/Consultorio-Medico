@@ -1,7 +1,7 @@
-// ./frontend/src/home/Home.js
+// ./frontend/src/pages/Home.js
 
 import React from "react";
-import { HomepageContainer, Heading, Paragraph, ButtonsContainer, Button } from "./components";
+import { HomepageContainer, Heading, Paragraph, ButtonsContainer, Button } from "./../components/home.js";
 
 function Homepage() {
   return (

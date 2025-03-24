@@ -1,7 +1,9 @@
+// ./frontend/src/pages/Login.js
+
 import React, { useState } from "react";
-import { login } from "./api";
+import { login } from "./../apis/login.js";
 import { useNavigate } from "react-router-dom";
-import { Title, LoginBox, InputBox, RememberForgot, Checkbox, Button, RegisterLink, Icon, Label, Input } from './components.js';
+import { Title, LoginBox, InputBox, RememberForgot, Checkbox, Button, RegisterLink, Icon, Label, Input } from './../components/login.js';
 
 const Login = () => {
   const [correo, setCorreo] = useState("");

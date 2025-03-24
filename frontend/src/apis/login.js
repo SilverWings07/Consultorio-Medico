@@ -1,4 +1,4 @@
-// ../frontend/src/login/api.js
+// ../frontend/src/apis/login.js
 
 // const API_URL = "https://consultorio-medico-mh5o.onrender.com/api/login";
 const API_URL = "http://localhost:5000/api/login";

@@ -1,8 +1,8 @@
-// ./frontend/src/register/Register.js
+// ./frontend/src/pages/Register.js
 
 import React, { useState } from "react";
-import { createUser } from "./api";
-import { RegistroContainer, Title, RegistroForm, FormGroup, Label, Input, Select, ButtonGroup, BtnPrimary } from "./components";
+import { createUser } from "./../apis/register";
+import { RegistroContainer, Title, RegistroForm, FormGroup, Label, Input, Select, ButtonGroup, BtnPrimary } from "./../components/register.js";
 
 const CrearUsuario = () => {
     const [formData, setFormData] = useState({

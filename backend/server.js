@@ -9,7 +9,7 @@ import rateLimiter from './middlewares/rateLimiter.js';
 import errorMiddleware from './middlewares/errorHandler.js';
 
 import loginRoutes from './routes/login.js';
-import userRoutes from './routes/users.js';
+import registerRoutes from './routes/register.js';
 
 dotenv.config();
 
@@ -45,7 +45,7 @@ app.use(express.json());
 
 app.use('/api/login', loginRoutes);
 
-app.use('/api/usuarios', userRoutes);
+app.use('/api/register', registerRoutes);
 
 // Middleware de manejo de errores (debe ser el último middleware)
 app.use(errorMiddleware);
