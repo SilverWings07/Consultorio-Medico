@@ -4,22 +4,22 @@ import styled from "styled-components";
 
 export const LoginBox = styled.div`
   width: 400px;
-  height: 450px;
   padding: 40px;
-  margin: 30px auto;
-  background: seaGreen;
+  margin: 100px auto 30px;
+  background: lightgreen;
   border-radius: 20px;
   text-align: center;
+  box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.2);
 
   @media (max-width: 480px) {
     padding: 30px;
-    margin: 30px auto;
+    margin: 85px auto 30px;
     max-width: 85%;
   }
 `;
 
 export const Title = styled.h2`
-  color: #333;
+  color: #222;
   
   @media (max-width: 480px) {
     font-size: 1.8em;
@@ -40,7 +40,7 @@ export const Icon = styled.span`
   right: 5px;
   top: 50%;
   transform: translateY(-50%);
-  color: #333;
+  color: #222;
   font-size: 1.2em;
   line-height: 57px;
 `;
@@ -62,9 +62,10 @@ export const Input = styled.input`
 export const Label = styled.label`
   position: absolute;
   left: 0;
-  top: 10px;
+  top: 20px;
   font-size: 14px;
-  color: #fff;
+  font-weight: bold;
+  color: #222;
   pointer-events: none;
   transition: 0.5s;
 
@@ -99,7 +100,7 @@ export const Checkbox = styled.input`
   margin-right: -30px;
 
   @media (max-width: 480px) {
-    margin-right: -10px;
+    margin-right: -20px;
   }
 `;
 

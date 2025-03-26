@@ -1,17 +1,13 @@
 // ./frontend/src/pages/Home.js
 
 import React from "react";
-import { HomepageContainer, Heading, Paragraph, ButtonsContainer, Button } from "./../components/home.js";
+import { HomepageContainer, Heading, Paragraph } from "./../components/home.js";
 
 function Homepage() {
   return (
     <HomepageContainer>
       <Heading>Consultorio Médico</Heading>
       <Paragraph>Por favor, inicia sesión para continuar.</Paragraph>
-      <ButtonsContainer>
-        <Button to="/login">Iniciar Sesión</Button>
-        <Button to="/register">Crear Usuario</Button>
-      </ButtonsContainer>
     </HomepageContainer>
   );
 }

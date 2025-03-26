@@ -1,55 +1,53 @@
+import styled from "styled-components";
 
 export const Heading = styled.header`
     position: fixed;
     top: 0;
     left: 0;
     width: 100%;
-    padding: 20px 10%;
+    padding: 15px 5%;
     background: seaGreen;
     display: flex;
     justify-content: space-between;
     align-items: center;
     z-index: 100;
+    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
 `;
-
-/*
-header {
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    padding: 20px 10%;
-    background: seaGreen;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    z-index: 100;
-}
-*/
 
 export const Logo = styled.a`
-    font-size: 32px;
+    font-size: 28px;
     color: #fff;
     font-weight: 700;
+    text-decoration: none;
+    cursor: pointer;
+
+    @media (max-width: 480px) {
+        font-size: 20px;
+    }
 `;
 
-/*
-.logo {
-    font-size: 32px;
-    color: #fff;
-    font-weight: 700;
-}
-*/
-
 export const Navbar = styled.nav`
-
+    display: flex;
+    gap: 20px;
 
     a {
-        position: relative;
         font-size: 18px;
         color: #fff;
         font-weight: 500;
-        margin-left: 40px;
+        text-decoration: none;
+        position: relative;
+        transition: color 0.3s ease;
+        cursor: pointer;
+        padding-right: 30px;
+
+        @media (max-width: 480px) {
+            font-size: 12px;
+            padding-right: 2px;
+        }
+    }
+
+    a:hover {
+        color: lightyellow;
     }
 
     a::before {
@@ -60,39 +58,14 @@ export const Navbar = styled.nav`
         width: 0;
         height: 2px;
         background-color: #fff;
-        transition: .4s;
+        transition: width 0.4s ease-in-out;
     }
 
     a:hover::before {
-        width: 100%;
-    }
+        width: 70%;
 
-    @media(max-width: 480px) {
-
+        @media (max-width: 480px) {
+            width: 90%;
+        }
     }
 `;
-
-/*
-.Navbar a {
-    position: relative;
-    font-size: 18px;
-    color: #fff;
-    font-weight: 500;
-    margin-left: 40px;
-}
-
-.Navbar a::before {
-    content: '';
-    position: absolute;
-    top: 100%;
-    left: 0;
-    width: 0;
-    height: 2px;
-    background-color: #fff;
-    transition: .4s;
-}
-
-.Navbar a:hover::before {
-    width: 100%;
-}
-*/

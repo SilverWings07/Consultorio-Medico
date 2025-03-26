@@ -5,26 +5,27 @@ import styled from "styled-components";
 export const RegistroContainer = styled.div`
   width: 500px;
   padding: 40px;
-  margin: 30px auto;
-  background: seaGreen;
+  margin: 100px auto 30px;
+  background: lightGreen;
   border-radius: 20px;
   text-align: center;
+  box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.2);
   
   @media (max-width: 480px) {
     width: 350px;
     padding: 30px;
-    margin: 20px auto;
+    margin: 85px auto;
   }
 `;
 
 export const Title = styled.h2`
-  color: #333;
+  color: #222;
   margin-bottom: 30px;
   
   @media (max-width: 480px) {
     font-size: 1.5em;
     margin-bottom: 25px;
-    margin-top: 0px;
+    margin-top: 10px;
   }
 `;
 
@@ -41,6 +42,7 @@ export const FormGroup = styled.div`
 
 export const Label = styled.label`
   display: flex;
+  color: #222;
   font-weight: bold;
   margin-bottom: 5px;
 `;

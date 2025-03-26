@@ -41,7 +41,7 @@ const CrearUsuario = () => {
 
     return (
         <RegistroContainer>
-            <Title>Registrar Nuevo Usuario</Title>
+            <Title>Registro de Usuario</Title>
             <RegistroForm onSubmit={handleSubmit}>
                 <FormGroup>
                     <Label>Correo:</Label>
