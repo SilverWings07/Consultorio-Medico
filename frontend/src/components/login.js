@@ -3,25 +3,25 @@
 import styled from "styled-components";
 
 export const LoginBox = styled.div`
-  max-width: 320px;
-  padding: 30px;
-  background-color: lightgreen;
-  border-radius: 12px;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-  margin: 20px auto;
+  width: 400px;
+  height: 450px;
+  padding: 40px;
+  margin: 30px auto;
+  background: seaGreen;
+  border-radius: 20px;
+  text-align: center;
 
   @media (max-width: 480px) {
     padding: 30px;
-    max-width: 75%;
+    margin: 30px auto;
+    max-width: 85%;
   }
 `;
 
 export const Title = styled.h2`
-  text-align: center;
-  margin-bottom: 20px;
   color: #333;
   
-  @media (max-width: 768px) {
+  @media (max-width: 480px) {
     font-size: 1.8em;
     margin-bottom: -10px;
     margin-top: 10px;
@@ -31,7 +31,7 @@ export const Title = styled.h2`
 export const InputBox = styled.div`
   position: relative;
   width: 100%;
-  margin: 30px 0;
+  margin: 40px auto;
   border-bottom: 2px solid #fff;
 `;
 
@@ -61,16 +61,16 @@ export const Input = styled.input`
 
 export const Label = styled.label`
   position: absolute;
-  top: 50%;
-  color: #333;
-  font-size: 1em;
+  left: 0;
+  top: 10px;
+  font-size: 14px;
+  color: #fff;
   pointer-events: none;
-  transition: 0.4s;
-  transform: translateY(-50%);
+  transition: 0.5s;
 
   ${Input}:focus + &,
   ${Input}:valid + & {
-    top: -5px;
+    top: -20px;
   }
 `;
 
@@ -91,8 +91,7 @@ export const RememberForgot = styled.div`
 
   @media (max-width: 480px) {
     flex-direction: row;
-    font-size: 14px;
-    padding: 0 7px 0 0;
+    font-size: 13px;
   }
 `;
 
@@ -100,13 +99,14 @@ export const Checkbox = styled.input`
   margin-right: -30px;
 
   @media (max-width: 480px) {
-    margin-right: -50px;
+    margin-right: -10px;
   }
 `;
 
 export const Button = styled.button`
   width: 100%;
   padding: 12px;
+  margin: 5px;
   background-color: #5c67f2;
   color: #fff;
   border: none;
@@ -117,6 +117,11 @@ export const Button = styled.button`
 
   &:hover {
     background-color: blue;
+  }
+
+  @media (max-width: 480px) {
+    font-size: 16px;
+    width: 85%;
   }
 `;
 
